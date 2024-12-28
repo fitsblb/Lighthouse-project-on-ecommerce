@@ -19,7 +19,7 @@
 ##  SQL queries used to clean the data.
 
  
-``` 
+``` sql
     SELECT
 	ns.productsku AS product_id,
         p.product_name AS product_name,
@@ -51,7 +51,7 @@
 
 
 
-```
+``` sql
 	ALTER TABLE 
                 new_sessions
 	DROP COLUMN 
@@ -60,7 +60,7 @@
 
 
 
-```
+``` sql
 	UPDATE 
                 new_sessions
 	SET 
@@ -73,17 +73,17 @@
 
 
 
-```
+``` sql
 	CASE
             WHEN TRIM(city) = 'New York' AND TRIM(country) = 'Canada' THEN 'New York'  -- Keep city as New York
             WHEN TRIM(city) IN ('(not set)', 'not available in demo dataset') THEN 'City in ' || TRIM(country)
             ELSE TRIM(city)
-    END AS modified_city,
+    	END AS modified_city,
     
-    CASE
+    	CASE
             WHEN TRIM(city) = 'New York' AND TRIM(country) = 'Canada' THEN 'United States'  -- Change country to United States
             ELSE TRIM(country)
-    END AS country,  -- Trim spaces from country names
+    	END AS country,  -- Trim spaces from country names
 ```
 
 
