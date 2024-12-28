@@ -14,7 +14,7 @@ __*PART 1*__
 
 
 
- ```
+ ``` sql
 CREATE OR REPLACE VIEW level_of_transaction AS 
 
     SELECT 
@@ -59,7 +59,7 @@ __*PART 2:*__
   - Grouping by country allows us to compare revenue levels at a national level.
 
 
- ```
+ ``` sql
     SELECT 
         country,
     	TO_CHAR(SUM(totalrevenue), '999,999,999,999') AS total_revenue,-- Format revenue for readability
@@ -88,7 +88,7 @@ __Answer:__
 
 __SQL Queries:__
 
- ```
+ ``` sql
 /* Step 1: Do some data cleaning */
 
 
@@ -166,7 +166,7 @@ __Answer:__
 __SQL Queries:__
 - **Sub-question 3.1:** Top categories with highest revenue  
 
-```
+``` sql
 WITH cleaned_sessions AS (
     SELECT 
         CASE 
@@ -238,7 +238,7 @@ ORDER BY
 
 - **Sub-question 3.2:** top  categories with the highest total ordered sold in __2017__ per city and country, where total ordered is greater than __200__.
 
-```
+``` sql
 WITH cleaned_sessions AS (
     SELECT 
         TRIM(ns.country) AS country,
@@ -319,7 +319,7 @@ ORDER BY
 - **Sub-question 3.3:** Analyzing the Relationship Between Order-to-Stock Ratio and Total Revenue by Product Category Across Regions
 
 
-```
+``` sql
 WITH cleaned_sessions AS (
     SELECT 
         TRIM(ns.country) AS country,
@@ -385,7 +385,7 @@ ORDER BY
 
 __SQL Queries:__
 
-```
+``` sql
 WITH product_details AS (
     SELECT 
         ns.productsku AS product_id,
@@ -450,7 +450,7 @@ __Answer:__
 
 
 
-```
+``` sql
 WITH product_details AS (
     SELECT 
         ns.productsku AS product_id,
@@ -522,7 +522,7 @@ __SQL Queries:__
 
 
 
-```
+``` sql
 CREATE OR REPLACE VIEW region_product_revenue_view AS
 
 WITH region_product_revenue AS (
@@ -570,7 +570,7 @@ GROUP BY
 
 - __PART 1__ : Regional Revenue Contribution Analysis — Evaluating Each City's Impact on Total Global Revenue
 
-```
+``` sql
 WITH revenue_totals AS (
     SELECT 
         country,
@@ -611,7 +611,7 @@ __Answer:__
 
 
 - __PART 2__ : Country-Level Revenue Contribution Analysis — Assessing Each Country's Share of Global Revenue
-```
+``` sql
 WITH country_revenue AS (
     SELECT
         country,
