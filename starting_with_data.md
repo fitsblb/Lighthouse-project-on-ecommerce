@@ -5,7 +5,7 @@ __SQL Queries:__
 
 
 
-```
+``` sql
         SELECT
             ns.productsku,
             ns.v2productname AS productname,
@@ -48,7 +48,7 @@ __Answer:__
 
 __SQL Queries:__
 
-``` 
+``` sql
     WITH entry_visit AS (
             SELECT
                 COUNT(DISTINCT fullvisitorid) AS entry_count,
@@ -91,7 +91,7 @@ __Answer:__
 
 __SQL Queries:__
  
-```
+``` sql
         SELECT
             full_visitor_id,
             SUM(pageviews) AS total_views,
@@ -123,7 +123,7 @@ __SQL Queries:__
 
 
 
-    ``` 
+``` sql
     WITH revenue_details AS (
         SELECT
             EXTRACT(YEAR FROM ns.transaction_date) AS transaction_year,
@@ -150,6 +150,7 @@ __SQL Queries:__
         revenue_details
         WHERE 
         max_revenue = 1 OR min_revenue = 1
+```
 
 __Answer:__
 
